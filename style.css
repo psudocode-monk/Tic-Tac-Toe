@@ -1,0 +1,168 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+
+/* Player Info Styles */
+.player-info {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    position: absolute; /* Positioning outside the container */
+    top: 50%; /* Adjust as needed */
+    left: 0;
+    gap: 600px;
+    /* padding: 0 20px; Add some padding */
+    z-index: 1; /* Ensure it appears above the container */
+}
+
+.player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.player-image {
+    height: 100px; /* Adjust size as needed */
+    pointer-events: none;
+}
+
+.player.active {
+    transform: scale(1.2); /* Zoom in effect */
+    opacity: 1; /* Fully visible */
+}
+
+.player.inactive {
+    opacity: 0.5; /* Fade effect */
+}
+
+/* Container Styles */
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Header Styling */
+h1 {
+    font-size: 2.5rem;
+    color: #330867;
+    margin-bottom: 20px;
+}
+
+/* Board Styles */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    grid-template-rows: repeat(3, 120px);
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+/* Individual Cells */
+.cell {
+    width: 120px;
+    height: 120px;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    font-weight: bold;
+    color: #333;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: inset 0 0px 2px rgb(4, 150, 255);
+}
+
+.cell:hover {
+    background-color: rgba(4, 150, 255, 0.39);
+}
+
+.cell.taken {
+    pointer-events: none;
+    color: #555;
+}
+
+/* Winning Message Styles */
+.winning-message {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: #333;
+}
+
+/* Restart Button */
+button {
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Responsive Styles */
+@media (max-width: 500px) {
+    .player-info {
+        flex-direction: column; /* Stack players vertically */
+        gap: 0; /* Remove gap */
+        position: relative; /* Reset position */
+        top: 55px; /* Reset top position */
+        margin-bottom: 20px; /* Add margin below player info */
+        padding: 50px;
+    }
+    .container h1 {
+        margin-top: 50px;
+    }
+    .player {
+        margin: 10px 0; /* Add margin between players */
+    }
+
+    .board {
+        grid-template-columns: repeat(3, 100px);
+        grid-template-rows: repeat(3, 100px);
+    }
+
+    .cell {
+        width: 100px;
+        height: 100px;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+ }
+}
